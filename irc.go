@@ -1,0 +1,24 @@
+package irc
+
+import (
+	"fmt"
+)
+
+func (c *Connection) LogIn(i Identity) {
+	c.Identity = i
+
+	c.Write(fmt.Sprintf(C_USER, i.Nick, i.Nick, i.Nick, i.Nick))
+	c.Write(fmt.Sprintf(C_NICK, i.Nick))
+}
+
+func (c *Connection) Quit(message string) {
+	c.Write(fmt.Sprintf(C_QUIT, message))
+}
+
+func (c *Connection) Join(channel string) {
+	c.Write(fmt.Sprintf(C_JOIN, channel))
+}
+
+func (c *Connection) Privmsg(target, message string) {
+	c.Write(fmt.Sprintf(C_PRIVMSG, target, message))
+}
