@@ -7,6 +7,7 @@ const (
 	RAW
 	MOTD_END
 	PING
+	MODE
 )
 
 type Event struct {

@@ -70,6 +70,29 @@ func generateEvent(data string) Event {
 			}
 
 			return Event{Type: t, Payload: payload}
+		case "MODE":
+			t = MODE
+
+			var modeline string
+			var channel string
+
+			idx++
+			for data[idx] != ' ' {
+				channel += string(data[idx])
+				idx++
+			}
+			idx++
+			for idx < len(data)-1 {
+				modeline += string(data[idx])
+				idx++
+			}
+
+			payload := map[string]string{
+				"modeline": modeline,
+				"channel":  channel,
+			}
+
+			return Event{Type: t, Payload: payload}
 		}
 	}
 	parts := strings.Split(data, " ")

@@ -40,6 +40,14 @@ func checkConstraintSatisfied(c Constraint, e *Event) bool {
 			if strings.Index(e.Payload["message"], c.Prefix) == 0 {
 				params := strings.Replace(e.Payload["message"], c.Prefix, "", 1)
 				e.Params = getParameters(params)
+
+				params_len := len(e.Params)
+				if params_len >= 2 {
+					if e.Params[params_len-2] == "@" {
+						e.Payload["sender"] = e.Params[params_len-1]
+						e.Params = e.Params[:params_len-2]
+					}
+				}
 				return true
 			}
 			return false
