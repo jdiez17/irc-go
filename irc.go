@@ -22,3 +22,7 @@ func (c *Connection) Join(channel string) {
 func (c *Connection) Privmsg(target, message string) {
 	c.Write(fmt.Sprintf(C_PRIVMSG, target, message))
 }
+
+func (c *Connection) Part(channel string) {
+	c.Write(fmt.Sprintf(C_PART, channel))
+}
