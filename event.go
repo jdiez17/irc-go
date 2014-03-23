@@ -27,3 +27,15 @@ func (e *Event) React(c *Connection, message string) {
 
 	c.Privmsg(channel, message)
 }
+
+
+func (e *Event) ReactToChannel(c *Connection, message string) {
+	channel := ""
+	if e.Payload["channel"] == c.Identity.Nick {
+		channel = getNick(e.Payload["sender"])
+	} else {
+		channel = e.Payload["channel"]
+	}
+
+	c.Privmsg(channel, message)
+}
