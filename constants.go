@@ -6,4 +6,5 @@ const (
 	C_QUIT           = "QUIT %s"
 	C_JOIN           = "JOIN %s"
 	C_PRIVMSG        = "PRIVMSG %s :%s"
+	C_PART           = "PART %s"
 )
