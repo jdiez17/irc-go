@@ -4,6 +4,10 @@ import (
 	"fmt"
 )
 
+func (c *Connection) Password(password string) {
+	c.Write(fmt.Sprintf(C_PASS, password))
+}
+
 func (c *Connection) LogIn(i Identity) {
 	c.Identity = i
 
