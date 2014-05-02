@@ -7,4 +7,5 @@ const (
 	C_JOIN           = "JOIN %s"
 	C_PRIVMSG        = "PRIVMSG %s :%s"
 	C_PART           = "PART %s"
+	C_PASS		 = "PASS %s 0210 IRC"
 )
