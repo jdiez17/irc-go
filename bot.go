@@ -5,12 +5,13 @@ type Bot struct {
 	Prefix     string
 }
 
-func NewBot(c *Connection) Bot {
+func NewBot(c *Connection, prefix string) Bot {
 	return Bot{
 		Connection: c,
-		Prefix:     ".",
+		Prefix: prefix,
 	}
 }
+
 
 func (b *Bot) AddCommand(command string, handler Handler) {
 	constraint := Constraint{
